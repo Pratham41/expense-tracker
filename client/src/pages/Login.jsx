@@ -14,7 +14,7 @@ const Login = () => {
     console.log(values);
     try {
       setLoading(true);
-      const response = await axios.post("https://expensetracker-cqzj.onrender.com:5000/users/login", values);
+      const response = await axios.post("https://expensetracker-cqzj.onrender.com/users/login", values);
       localStorage.setItem(
         "pratham-money-user",
         JSON.stringify({ ...response.data, password: "" })

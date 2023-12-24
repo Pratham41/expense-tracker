@@ -13,7 +13,7 @@ const Register = () => {
     console.log(values);
     try {
       setLoading(true);
-      await axios.post("https://expensetracker-cqzj.onrender.com:5000/users/register", values);
+      await axios.post("https://expensetracker-cqzj.onrender.com/users/register", values);
       setLoading(false);
       message.success("Registration successfull !");
     } catch (error) {
