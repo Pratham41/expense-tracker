@@ -18,7 +18,7 @@ const AddEditTransaction = ({
       const user = JSON.parse(localStorage.getItem("pratham-money-user"));
       setLoading(true);
       if (selectedItemForEdit) {
-        await axios.post("/transactions/edit-transaction", {
+        await axios.post("https://expensetracker-cqzj.onrender.com:5000/transactions/edit-transaction", {
           payLoad: {
             ...values,
             userId: user._id,
@@ -28,7 +28,7 @@ const AddEditTransaction = ({
         getTransactions();
         message.success("Transaction Updated successfully !");
       } else {
-        await axios.post("/transactions/add-transaction", {
+        await axios.post("https://expensetracker-cqzj.onrender.com:5000/transactions/add-transaction", {
           ...values,
           userId: user._id,
         });

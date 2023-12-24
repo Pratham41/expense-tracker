@@ -34,13 +34,12 @@ const Home = () => {
     try {
       const user = JSON.parse(localStorage.getItem("pratham-money-user"));
       setLoading(true);
-      const response = await axios.post("/transactions/get-all-transactions", {
+      const response = await axios.post("https://expensetracker-cqzj.onrender.com:5000/transactions/get-all-transactions", {
         userId: user._id,
         frequency,
         ...(frequency === "custom" && { selectedRange }),
         type,
       });
-      console.log("trans...", response.data.allTransactions);
       setTransactionsData(response.data.allTransactions);
       setLoading(false);
     } catch (error) {
@@ -52,7 +51,7 @@ const Home = () => {
   const deleteTransaction = async (record) => {
     try {
       setLoading(true);
-      await axios.post("/transactions/delete-transaction", {
+      await axios.post("https://expensetracker-cqzj.onrender.com:5000/transactions/delete-transaction", {
         transactionId: record._id,
       });
       message.success("Transaction deleted successfully !");
